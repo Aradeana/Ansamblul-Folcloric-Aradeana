@@ -4,35 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ansamblul Arădeana</title>
- <style>
-     body {
+  <style>
+    /* ANIMAȚIE INTRARE */
+    #intro-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 1.5s ease-out 5s forwards;
+    }
+
+    #intro-animation h1 {
+      font-family: 'Georgia', serif;
+      font-size: 3.5em;
+      color: white;
+      text-align: center;
+      text-shadow: 0 0 20px #ffcc00, 0 0 40px #ffcc00;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: titleZoom 4s ease-out forwards;
+    }
+
+    #intro-animation h1 span {
+      color: #ffcc00;
+    }
+
+    @keyframes titleZoom {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+        filter: blur(8px);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(0);
+      }
+      100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    /* STILURI PAGINĂ */
+    body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      padding-bottom: 60px; /* Înălțimea footerului */
+      padding-bottom: 60px;
       background-color: #121212;
       color: #f0f0f0;
     }
+
     header {
       background-color: #1a1a1a;
       color: white;
       padding: 20px;
       text-align: center;
     }
+
     nav {
       background-color: #1a1a1a;
       padding: 10px;
       text-align: center;
     }
+
     nav a {
       color: #f0f0f0;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     section {
       padding: 20px;
       background-color: #1e1e1e;
@@ -41,27 +101,32 @@
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
       border-radius: 5px;
     }
+
     footer {
-  background-color: #1a1a1a;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
     a {
       color: #bbbbbb;
     }
+
     a:hover {
       color: #ffffff;
     }
+
     .galerie-img {
       text-align: center;
       margin-top: 15px;
     }
+
     .galerie-img img {
       max-width: 100%;
       height: auto;
@@ -71,15 +136,12 @@
   </style>
 </head>
 <body>
-  <div id="intro-animation">
+
+<!-- ANIMAȚIE INTRARE -->
+<div id="intro-animation">
   <h1>Ansamblul <span>Arădeana</span></h1>
-  </div>
-<div id="intro-container">
-  <div class="intro-background"></div>
-  <div class="intro-content">
-    <h1 class="animated-text">Bine ați venit pe site-ul <span>Arădeana</span></h1>
-  </div>
 </div>
+
 <header>
   <h1>Ansamblul Folcloric „Arădeana”</h1>
   <p>Tradiție, muzică și dans popular din județul Arad</p>
@@ -87,7 +149,7 @@
 
 <nav>
   <a href="index.html">Acasa</a>
-<a href="despre.html">Despre noi</a>
+  <a href="despre.html">Despre noi</a>
   <a href="activitate.html">Activitate</a>
   <a href="galerie.html">Galerie</a>
   <a href="contact.html">Contact</a>
@@ -96,16 +158,23 @@
 <section id="Acasa">
   <h2>Acasa</h2>
   <p>Legătura cu pământul nostru natal, cu identitatea noastră ca popor o menținem doar păstrând vii tradițiile populare, portul, cântecul și dansul popular!</p>
-  <div class="galerie.img">
-     <img src="https://scontent.farw1-1.fna.fbcdn.net/v/t39.30808-6/463617698_2926402824178452_4065645190732606575_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=DwuwL3Wfob0Q7kNvwFotReH&_nc_oc=AdkWo7dKRMYhX9ltb2PfCbDiRnVxf-uf4eBmTrwC7ZehFvuNzF1HurjCczTE-pN6eK0&_nc_zt=23&_nc_ht=scontent.farw1-1.fna&_nc_gid=kwO3oYDV3igqp607Y98HYQ&oh=00_AfIwwHK6A2doyAqwdLw_RzM4XDIoA7DCfmanz__yvnceLw&oe=68278F9D" alt="Ansamblul  Arădeana">
+  <div class="galerie-img">
+    <img src="https://scontent.farw1-1.fna.fbcdn.net/v/t39.30808-6/463617698_2926402824178452_4065645190732606575_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=DwuwL3Wfob0Q7kNvwFotReH&_nc_oc=AdkWo7dKRMYhX9ltb2PfCbDiRnVxf-uf4eBmTrwC7ZehFvuNzF1HurjCczTE-pN6eK0&_nc_zt=23&_nc_ht=scontent.farw1-1.fna&_nc_gid=kwO3oYDV3igqp607Y98HYQ&oh=00_AfIwwHK6A2doyAqwdLw_RzM4XDIoA7DCfmanz__yvnceLw&oe=68278F9D" alt="Ansamblul Arădeana">
   </div>
 </section>
-
-
 
 <footer>
   <p>&copy; 2025 Ansamblul Arădeana – Toate drepturile rezervate</p>
 </footer>
+
+<script>
+  window.addEventListener('load', () => {
+    const intro = document.getElementById('intro-animation');
+    setTimeout(() => {
+      intro.remove();
+    }, 6000); // 6 secunde: 4s animație + 2s pauză
+  });
+</script>
 
 </body>
 </html>
