@@ -12,7 +12,7 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+      background: #000000; /* Fundal negru */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,16 +23,16 @@
     #intro-animation h1 {
       font-family: 'Georgia', serif;
       font-size: 3.5em;
-      color: white;
+      color: white; /* Text alb */
       text-align: center;
-      text-shadow: 0 0 20px #ffcc00, 0 0 40px #ffcc00;
+      text-shadow: none;
       opacity: 0;
       transform: scale(0.8);
       animation: titleZoom 4s ease-out forwards;
     }
 
     #intro-animation h1 span {
-      color: white;
+      color: white; /* "Arădeana" va fi tot alb */
     }
 
     @keyframes titleZoom {
@@ -48,7 +48,6 @@
       }
       100% {
         transform: scale(1);
-        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
       }
     }
 
@@ -159,7 +158,7 @@
   <h2>Acasa</h2>
   <p>Legătura cu pământul nostru natal, cu identitatea noastră ca popor o menținem doar păstrând vii tradițiile populare, portul, cântecul și dansul popular!</p>
   <div class="galerie-img">
-    <img src="https://scontent.farw1-1.fna.fbcdn.net/v/t39.30808-6/463617698_2926402824178452_4065645190732606575_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=DwuwL3Wfob0Q7kNvwFotReH&_nc_oc=AdkWo7dKRMYhX9ltb2PfCbDiRnVxf-uf4eBmTrwC7ZehFvuNzF1HurjCczTE-pN6eK0&_nc_zt=23&_nc_ht=scontent.farw1-1.fna&_nc_gid=kwO3oYDV3igqp607Y98HYQ&oh=00_AfIwwHK6A2doyAqwdLw_RzM4XDIoA7DCfmanz__yvnceLw&oe=68278F9D" alt="Ansamblul Arădeana">
+    <img src="https://scontent.farw1-1.fna.fbcdn.net/v/t39.30808-6/463617698_2926402824178452_4065645190732606575_n.jpg" alt="Ansamblul Arădeana">
   </div>
 </section>
 
@@ -169,10 +168,23 @@
 
 <script>
   window.addEventListener('load', () => {
-    const intro = document.getElementById('intro-animation');
-    setTimeout(() => {
-      intro.remove();
-    }, 6000); // 6 secunde: 4s animație + 2s pauză
+    // Verifică dacă animația a fost deja vizualizată
+    if (!localStorage.getItem('introShown')) {
+      const intro = document.getElementById('intro-animation');
+      
+      setTimeout(() => {
+        intro.remove();
+      }, 6000); // 6 secunde: 4s animație + 2s pauză
+
+      // Setează flag-ul pentru a indica că animația a fost arătată
+      localStorage.setItem('introShown', 'true');
+    } else {
+      // Dacă animația a fost deja arătată, ascunde-o imediat
+      const intro = document.getElementById('intro-animation');
+      if (intro) {
+        intro.remove();
+      }
+    }
   });
 </script>
 
